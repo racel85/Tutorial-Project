@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript tutorial</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- style for the page -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script> <!-- Make code snippets colored -->
+</head>
+
+<body>
+
+  <ul id="navbar">
+    <li><a class="active" href="#home">Introduction</a></li>
+    <li><a href="#news">Title 1</a></li>
+    <li><a href="#contact">Title 2</a></li>
+    <li><a href="#about">Title 3</a></li>
+  </ul>
+
+  <div class="allContent">
+    <!-- for evertying except the navBar -->
+
+    <!-- introduction  -->
+    <div class="chapter ch1">
+      <p id="mainTitle">JavaScript Introduction</p>
+
+      <p id="textStyle">JavaScript is the world's most popular programming language.<br>
+        JavaScript is the programming language of the Web.<br>
+        JavaScript is easy to learn.<br>
+        This tutorial will teach you JavaScript from basic to advanced.<br>
+        Maybe some more here?</p>
+    </div>
+
+
+    <!-- First "chapter" -->
+    <div class="chapter ch2">
+      <p id="mainTitle">JavaScript Can Change HTML Content</p>
+      <p id="textStyle">One of many JavaScript HTML methods is <span>getElementById()</span>.<br>
+        The example below "finds" an HTML element (with id="demo"), and changes the element content (innerHTML) to "Hello JavaScript":</p>
+
+      <!-- In order to show code inside html I have imported a JS file. " code class="prettyprint" " does it. toBeHighlighted class will change color when it is changed  -->
+      <!-- Language cells -->
+      <div class="languageALL">
+
+        <pre class="language cellHTML ch1-height">
+             <p id="languageTitle"> HTML</p>
+             <code class="prettyprint">
+               &lt;div id="demo"&gt;
+               <span class="toBeHighlighted">Some text</span>
+               &lt;/div&gt;
+               </code>
+           </pre>
+
+        <pre class="language cellCSS ch1-height">
+             <p  id="languageTitleCSS">CSS</p>
+             <code class="prettyprint">
+             </code>
+           </pre>
+
+        <pre class="language cellJS ch1-height">
+             <p id="languageTitle">JavaScript</p>
+             <code class="prettyprint">
+ document.getElementById("demo").innerHTML =<br> "I changed!";
+            </code>
+           </pre>
+      </div>
+      <!-- Language cells end -->
+
+      <!-- Preview and commentary -->
+      <div class="rowPrevComm">
+        <div class="previewBox ch1-heightPC">
+          <p id="titlePreview"> Preview</p>
+          <!-- here the code from the language cells will be displayed -->
+          <div class="previewContent">
+            <div id="demo">Some text</div>
+          </div>
+          <button onclick="changeText1()" class="executeButton" type="button">
+            <p>Execute!</p>
+          </button>
+        </div>
+
+        <div class="commentary ch1-heightPC">
+          <p id="titleCommentary"> Commentary</p>
+          <div class="previewContent clickToAppear">
+            <p>This will work only if the <span>id</span> is unique.</p>
+            <p>If you use the same <span>id</span> for multiple elements and try this method, only the first element would change.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- First "chapter" end -->
+
+
+    <!-- Second "chapter" -->
+    <div class="chapter ch3">
+      <p id="mainTitle">JavaScript Can Change Pictures, styles and much more</p>
+      <p id="textStyle">In this example JavaScript changes the value of the <span>src</span> (source) attribute of an <span>&lt;img&gt;</span> tag:</p>
+
+      <!-- Language cells -->
+      <div class="languageALL">
+
+        <pre class="language cellHTML ch2-height">
+             <p id="languageTitle"> HTML</p>
+             <code class="prettyprint">
+
+  &lt;button onclick="engageLight()" type="button" <br>class="on-off">ON/OFF&lt;button&gt;
+
+  &lt;img id="bulb" src= <span class="toBeHighlighted">"imgs/bulbOFF.png"</span> alt=""&gt;
+
+               </code>
+           </pre>
+
+        <pre class="language cellCSS ch2-height">
+             <p  id="languageTitleCSS">CSS</p>
+             <code class="prettyprint">
+    .on-off{
+    width: 50%;
+    margin: 2% 25%;
+    }
+
+    #bulb {
+      width: 30%;
+      margin: 0% 35%;
+      <span class="toBeHighlighted"></span>
+    }
+             </code>
+           </pre>
+
+        <pre class="language cellJS ch2-height">
+             <p id="languageTitle">JavaScript</p>
+             <code class="prettyprint">
+var state = 0; // the state, 0=OFF & 1=ONN
+var bulb = document.getElementById('bulb');
+
+function engageLight() {
+  if (state == 0) {
+    state = 1; // Register the turning on
+    bulb.src = 'imgs/bulbON.png';
+    bulb.style.boxShadow =<br> "0px 0px 55px 20px rgb(255,215,0)";
+    bulb.style.backgroundColor =<br> "rgb(255,215,0, 0.72)";
+
+  } else {
+    state = 0; // Register the turning off
+    bulb.src = 'imgs/bulbOFF.png';
+    bulb.style.boxShadow = "0px 0px 0px 0px";
+    bulb.style.backgroundColor = "white";
+  }
+}
+            </code>
+           </pre>
+      </div>
+      <!-- Language cells end -->
+
+      <!-- Preview and commentary -->
+      <div class="rowPrevComm">
+        <div class="previewBox ch2-heightPC">
+          <p id="titlePreview"> Preview</p>
+
+          <div class="previewContent">
+
+            <button onclick="engageLight()" type="button" class="on-off">ON/OFF</button>
+            <img id="bulb" src="imgs/bulbOFF.png" alt="">
+
+          </div>
+        </div>
+
+        <div class="commentary ch2-heightPC">
+          <p id="titleCommentary"> Commentary</p>
+          <div class="previewContent clickToAppear">
+            <p>In this example, the variable <span>state</span> will tell if the bulb is turned off or on.</p>
+            <p>A simple <span>if</span> statement will check the state of the bulb and change it.</p>
+            <p>Javascript can be used to change the <span>scr</span> attribute and any CSS style.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Second "chapter" end -->
+
+
+  </div>
+    <!-- all content end -->
+  <script src="js/script.js" charset="utf-8"></script>
+</body>
+
+</html>
